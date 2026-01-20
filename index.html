@@ -10,8 +10,8 @@
 
   <!-- BACKGROUND MUSIC -->
   <audio id="bgMusic" autoplay loop>
-  <source src="music/love.mp3" type="audio/mpeg">
-</audio>
+    <source src="music/love.mp3" type="audio/mpeg">
+  </audio>
 
   <!-- FLOATING HEARTS -->
   <div class="hearts"></div>
@@ -53,7 +53,6 @@
       <p>Almost two years of loving you, my Fathiii ❤️</p>
       <p>And our next anniversary is in:</p>
       <h3 id="daysToAnniversary"></h3>
-      <p>And every single day with you has been my favorite ❤️</p>
     </div>
   </section>
 
@@ -93,8 +92,8 @@
     <div class="popup-content">
       <h2>For You, My Love ❤️</h2>
       <p>
-        Fathiii… if you’re reading this ❤️  
-        You are my safe place, my happiness, my peace.  
+        Fathiii… if you’re reading this ❤️<br>
+        You are my safe place, my happiness, my peace.<br>
         I don’t just love you… I choose you. Every day. In every lifetime.  
       </p>
       <button onclick="closeMessage()">Close 💖</button>
@@ -132,10 +131,9 @@
     }
   </script>
 
-  <!-- SMOOTH FADE-IN SCRIPT -->
+  <!-- FADE IN SCRIPT -->
   <script>
     const faders = document.querySelectorAll('.fade');
-
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -143,25 +141,24 @@
         }
       });
     }, { threshold: 0.2 });
-
     faders.forEach(el => observer.observe(el));
   </script>
-<script>
-  const music = document.getElementById("bgMusic");
-  music.volume = 0.2; // very soft volume (0.0 to 1.0)
 
-  // Smooth fade in
-  let vol = 0;
-  music.volume = vol;
+  <!-- MUSIC VOLUME + FADE IN -->
+  <script>
+    const music = document.getElementById("bgMusic");
+    let vol = 0;
+    music.volume = vol;
 
-  const fade = setInterval(() => {
-    if (vol < 0.2) {
-      vol += 0.01;
-      music.volume = vol;
-    } else {
-      clearInterval(fade);
-    }
-  }, 200);
-</script>
+    const fade = setInterval(() => {
+      if (vol < 0.2) {
+        vol += 0.01;
+        music.volume = vol;
+      } else {
+        clearInterval(fade);
+      }
+    }, 200);
+  </script>
+
 </body>
 </html>
