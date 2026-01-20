@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Fathiii ❤️</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- BACKGROUND MUSIC -->
+  <audio id="bgMusic" autoplay loop>
+  <source src="music/love.mp3" type="audio/mpeg">
+</audio>
+
+  <!-- FLOATING HEARTS -->
+  <div class="hearts"></div>
+
+  <!-- HERO -->
+  <section class="hero fade">
+    <h1>Happy Valentine’s Day ❤️</h1>
+    <p>Naifa… my beautiful Fathiii, this little corner of the internet is just for you.</p>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section fade">
+    <h2>Our Beautiful Memories 📸</h2>
+    <div class="gallery">
+      <img src="photos/photo1.jpg">
+      <img src="photos/photo2.jpg">
+      <img src="photos/photo3.jpg">
+      <img src="photos/photo4.jpg">
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="section soft fade">
+    <h2>Our Story 🕰️</h2>
+    <div class="timeline">
+      <p><b>The Day We Met</b> – The day my heart found its home.</p>
+      <p><b>5th August 2024</b> – The day our love story truly began.</p>
+      <p><b>Every Day With You</b> – My favorite place is always beside you.</p>
+    </div>
+  </section>
+
+  <!-- COUNTER -->
+  <section class="section soft fade">
+    <h2>Our Love in Time ⏳</h2>
+    <div class="counter">
+      <p><b>Since 5th August 2024 ❤️</b></p>
+      <p>We have been in love for:</p>
+      <h3 id="daysTogether"></h3>
+      <p>Almost two years of loving you, my Fathiii ❤️</p>
+      <p>And our next anniversary is in:</p>
+      <h3 id="daysToAnniversary"></h3>
+      <p>And every single day with you has been my favorite ❤️</p>
+    </div>
+  </section>
+
+  <!-- LETTER -->
+  <section class="section fade">
+    <h2>A Letter For You 💌</h2>
+    <div class="letter">
+      <p>
+        My dearest Naifa — my Fathiii ❤️<br><br>
+        For almost two beautiful years, you have been the best part of my life.
+        But to me, you’re not just Naifa… you’re my Fathiii — the name that only my heart knows how to say.<br><br>
+        Your smile still makes my heart skip, your voice still calms my soul,
+        and your love still feels like the greatest gift I could ever receive.<br><br>
+        Thank you for choosing me, for standing by me, and for loving me the way you do.
+        I am so proud to call you mine, and even more grateful to walk this journey with you.<br><br>
+        No matter where life takes us, I promise to keep loving you,
+        to keep protecting your heart, and to keep choosing you — today, tomorrow, and always.<br><br>
+        Forever yours,<br>
+        <b>Nidal ❤️</b>
+      </p>
+    </div>
+  </section>
+
+  <!-- SECRET BUTTON -->
+  <section class="section fade">
+    <button class="secret-btn" onclick="showMessage()">Click here if you love me ❤️</button>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final fade">
+    <h2>You Are My Forever 🌹</h2>
+    <p>Happy Valentine’s Day, my Naifa… my Fathiii ❤️ This is only the beginning of our love story.</p>
+  </section>
+
+  <!-- POPUP -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h2>For You, My Love ❤️</h2>
+      <p>
+        Fathiii… if you’re reading this ❤️  
+        You are my safe place, my happiness, my peace.  
+        I don’t just love you… I choose you. Every day. In every lifetime.  
+      </p>
+      <button onclick="closeMessage()">Close 💖</button>
+    </div>
+  </div>
+
+  <!-- ANNIVERSARY SCRIPT -->
+  <script>
+    const startDate = new Date("2024-08-05");
+    const today = new Date();
+
+    const diffTime = Math.abs(today - startDate);
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    document.getElementById("daysTogether").innerText =
+      diffDays + " beautiful days 💖";
+
+    let nextAnniversary = new Date(today.getFullYear(), 7, 5);
+    if (today > nextAnniversary) {
+      nextAnniversary = new Date(today.getFullYear() + 1, 7, 5);
+    }
+
+    const diffTime2 = Math.abs(nextAnniversary - today);
+    const diffDays2 = Math.ceil(diffTime2 / (1000 * 60 * 60 * 24));
+    document.getElementById("daysToAnniversary").innerText =
+      diffDays2 + " days to go 🌹";
+  </script>
+
+  <!-- POPUP SCRIPT -->
+  <script>
+    function showMessage() {
+      document.getElementById("popup").style.display = "flex";
+    }
+    function closeMessage() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+
+  <!-- SMOOTH FADE-IN SCRIPT -->
+  <script>
+    const faders = document.querySelectorAll('.fade');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    faders.forEach(el => observer.observe(el));
+  </script>
+<script>
+  const music = document.getElementById("bgMusic");
+  music.volume = 0.2; // very soft volume (0.0 to 1.0)
+
+  // Smooth fade in
+  let vol = 0;
+  music.volume = vol;
+
+  const fade = setInterval(() => {
+    if (vol < 0.2) {
+      vol += 0.01;
+      music.volume = vol;
+    } else {
+      clearInterval(fade);
+    }
+  }, 200);
+</script>
+</body>
+</html>

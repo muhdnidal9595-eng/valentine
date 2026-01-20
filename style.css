@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #fff5f7;
+  color: #333;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 70px 20px;
+}
+
+.hero {
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+}
+
+.section h2 {
+  font-size: 2em;
+  margin-bottom: 25px;
+}
+
+.soft {
+  background: #ffe6ee;
+}
+
+/* GALLERY */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.07);
+}
+
+/* TIMELINE */
+.timeline {
+  max-width: 600px;
+  margin: auto;
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+/* LETTER */
+.letter {
+  max-width: 650px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+/* COUNTER */
+.counter {
+  background: white;
+  max-width: 500px;
+  margin: auto;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  font-size: 1.2em;
+}
+
+.counter h3 {
+  color: #ff5e8a;
+}
+
+/* BUTTON */
+.secret-btn {
+  background: #ff5e8a;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1em;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.secret-btn:active {
+  transform: scale(0.95);
+}
+
+/* FINAL */
+.final {
+  background: linear-gradient(to right, #ff7eb3, #ff758c);
+  color: white;
+}
+
+/* POPUP */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 350px;
+}
+
+/* FLOATING HEARTS */
+.hearts::before {
+  content: "❤️ 💕 💖 💘 💗";
+  position: fixed;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  font-size: 2rem;
+  animation: fall 10s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10%); }
+  100% { transform: translateY(110%); }
+}
+
+/* FADE ANIMATION */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
